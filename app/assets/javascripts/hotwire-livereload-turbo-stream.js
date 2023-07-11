@@ -106,7 +106,8 @@
       }
     };
     document.addEventListener("turbo:before-stream-render", window.HotwireLivereload);
-    document.addEventListener("turbo:visit", function() {
+    document.addEventListener("turbo:load", function() {
+      console.log(lastScrollTopPosition, "lastScrollTopPosition");
       if (lastScrollTopPosition) {
         document.documentElement.scrollTo(0, lastScrollTopPosition);
         lastScrollTopPosition = null;
