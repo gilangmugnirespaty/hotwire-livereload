@@ -7,6 +7,10 @@ consumer.subscriptions.create("Hotwire::Livereload::ReloadChannel", {
 
   connected() {
     console.log("[Hotwire::Livereload] Websocket connected")
+
+    document.addEventListener('turbo:load', function() {
+      document.documentElement.scrollTo(0, window.HotwireLiveReloadLastScrollTop)
+    });
   },
 
   disconnected() {

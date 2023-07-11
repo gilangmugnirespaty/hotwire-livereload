@@ -8,6 +8,7 @@ export default debounce(({force_reload}) => {
     document.location.reload()
   } else {
     console.log("[Hotwire::Livereload] Files changed. Reloading..")
+    window.HotwireLiveReloadLastScrollTop = document.documentElement.scrollTop;
     Turbo.visit(window.location.href, { action: 'replace' })
   }
 }, 300)
